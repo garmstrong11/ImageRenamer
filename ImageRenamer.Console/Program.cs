@@ -60,7 +60,7 @@
         messages.AddRange(result.Errors.Select(e => e.ErrorMessage).OrderBy(e => e));
 
         handler.CopyValidFiles();
-        //handler.Cleanup();
+        handler.Cleanup();
       }
 
       catch (ValidationException exc) {

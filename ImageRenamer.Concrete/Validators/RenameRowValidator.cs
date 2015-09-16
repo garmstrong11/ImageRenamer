@@ -7,7 +7,7 @@
     public RenameRowValidator()
     {
       RuleFor(p => p.ArtFile).NotNull()
-        .WithMessage("Unable to find a file that matches Customer's File Name \"{0}\".", p => p.MatchName);
+        .WithMessage("Unable to find a file named \"{0}\".", p => p.MatchName);
 
       RuleFor(p => p.ArtFile).SetValidator(new ArtFileValidator());
 

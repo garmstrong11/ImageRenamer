@@ -61,7 +61,8 @@
       {12, "Not the correct resolution and not the right size"},
       {13, "Not a TIF file, not the correct resolution and not the right size"},
       {14, "Not the right color space, not the correct resolution and not the right size"},
-      {15, "Not a TIF file, not the right color space, not the correct resolution and not the right size"}
+      {15, "Not a TIF file, not the right color space, not the correct resolution and not the right size"},
+      {16, "Unsupported file format"}
     }; 
 
     protected bool Equals(ArtFile other)
