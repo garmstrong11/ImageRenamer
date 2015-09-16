@@ -39,6 +39,11 @@
 
     public string MatchName { get; private set; }
 
+    public string OriginalName
+    {
+      get { return _fileInfo.Name; }
+    }
+
     public void CopyToFolder(string newPath)
     {
       _fileInfo.CopyTo(newPath);
