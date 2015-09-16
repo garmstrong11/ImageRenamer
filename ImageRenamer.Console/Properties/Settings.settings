@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ImageRenamer.Console.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CustomersFilenameColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Customer's File Name</Value>
+    </Setting>
+    <Setting Name="NewFilenameColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">New File Name</Value>
+    </Setting>
+    <Setting Name="SheetIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="HeaderRowIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="OutputReportFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Errors.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

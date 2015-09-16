@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRenamer.Extractor", "ImageRenamer.Extractor\ImageRenamer.Extractor.csproj", "{A366686C-1C18-4273-B128-386775690536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRenamer.Abstract", "ImageRenamer.Abstract\ImageRenamer.Abstract.csproj", "{E6159F0F-9D36-46B5-ADA7-BEC537959463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRenamer.Tests", "ImageRenamer.Tests\ImageRenamer.Tests.csproj", "{9DFB52F7-A7A3-40E1-9A70-E31DA8448CCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B3748F40-5E2F-47AA-94F8-9B2F0F0A57E3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRenamer.Console", "ImageRenamer.Console\ImageRenamer.Console.csproj", "{D37AC356-4A02-40D4-B4B0-0D39905B1587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRenamer.Concrete", "ImageRenamer.Concrete\ImageRenamer.Concrete.csproj", "{E6A12E04-91F1-44B7-A8DD-C74FC820D855}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A366686C-1C18-4273-B128-386775690536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A366686C-1C18-4273-B128-386775690536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A366686C-1C18-4273-B128-386775690536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A366686C-1C18-4273-B128-386775690536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6159F0F-9D36-46B5-ADA7-BEC537959463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6159F0F-9D36-46B5-ADA7-BEC537959463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6159F0F-9D36-46B5-ADA7-BEC537959463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6159F0F-9D36-46B5-ADA7-BEC537959463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFB52F7-A7A3-40E1-9A70-E31DA8448CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFB52F7-A7A3-40E1-9A70-E31DA8448CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFB52F7-A7A3-40E1-9A70-E31DA8448CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFB52F7-A7A3-40E1-9A70-E31DA8448CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37AC356-4A02-40D4-B4B0-0D39905B1587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37AC356-4A02-40D4-B4B0-0D39905B1587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37AC356-4A02-40D4-B4B0-0D39905B1587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37AC356-4A02-40D4-B4B0-0D39905B1587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A12E04-91F1-44B7-A8DD-C74FC820D855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A12E04-91F1-44B7-A8DD-C74FC820D855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A12E04-91F1-44B7-A8DD-C74FC820D855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A12E04-91F1-44B7-A8DD-C74FC820D855}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
