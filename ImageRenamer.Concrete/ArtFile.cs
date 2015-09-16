@@ -10,12 +10,15 @@
     private readonly int _errorIndex;
     private static readonly Regex ErrorRegex = new Regex(@"~(\d+)", RegexOptions.Compiled);
 
+
     public ArtFile(FileInfo fileInfo)
     {
       _fileInfo = fileInfo;
 
-      var name = GetFilenameWithoutExtension();
+      var name = Path.GetFileNameWithoutExtension(_fileInfo.Name);
       int.TryParse(ErrorRegex.Match(name).Groups[1].Value, out _errorIndex);
+
+      MatchName = ErrorRegex.Replace(name, "");
     }
 
     public string ErrorText
@@ -34,10 +37,7 @@
       }
     }
 
-    public string MatchName
-    {
-      get { return ErrorRegex.Replace(_fileInfo.Name, ""); }
-    }
+    public string MatchName { get; private set; }
 
     public void CopyToFolder(string newPath)
     {
@@ -47,15 +47,15 @@
     private static readonly Dictionary<int, string> ErrorLookup = new Dictionary<int, string>
     {
       {0, string.Empty},
-      {1, "Not a TIF file"},
-      {2, "Not the right color space"},
-      {3, "Not a TIF file and not the right color space"},
-      {4, "Not the correct resolution"},
-      {5, "Not a TIF file and not the correct resolution"},
-      {6, "Not the right color space and not the correct resolution"},
-      {7, "Not a TIF file, not the right color space and not the correct resolution"},
-      {8, "Not the right size"},
-      {9, "Not a TIF file and not the right size"},
+      {1,  "Not a TIF file"},
+      {2,  "Not the right color space"},
+      {3,  "Not a TIF file and not the right color space"},
+      {4,  "Not the correct resolution"},
+      {5,  "Not a TIF file and not the correct resolution"},
+      {6,  "Not the right color space and not the correct resolution"},
+      {7,  "Not a TIF file, not the right color space and not the correct resolution"},
+      {8,  "Not the right size"},
+      {9,  "Not a TIF file and not the right size"},
       {10, "Not the right color space and not the right size"},
       {11, "Not a TIF file, not the right color space and not the right size"},
       {12, "Not the correct resolution and not the right size"},
@@ -63,11 +63,6 @@
       {14, "Not the right color space, not the correct resolution and not the right size"},
       {15, "Not a TIF file, not the right color space, not the correct resolution and not the right size"}
     }; 
-
-    private string GetFilenameWithoutExtension()
-    {
-      return Path.GetFileNameWithoutExtension(_fileInfo.Name);
-    }
 
     protected bool Equals(ArtFile other)
     {

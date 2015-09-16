@@ -60,7 +60,7 @@
         messages.AddRange(result.Errors.Select(e => e.ErrorMessage).OrderBy(e => e));
 
         handler.CopyValidFiles();
-        handler.Cleanup();
+        //handler.Cleanup();
       }
 
       catch (ValidationException exc) {
@@ -94,6 +94,7 @@
       Container.RegisterSingle<ISettingsService, ImageRenamerSettings>();
       Container.RegisterSingle<IDataSourceAdapter, FlexCelDataSourceAdapter>();
       Container.Register<IExtractor<RenameRow>, RenameRowExtractor>();
+      Container.Register<AbstractValidator<RenameRow>, RenameRowValidator>();
     }
   }
 }

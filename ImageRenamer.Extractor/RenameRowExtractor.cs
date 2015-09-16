@@ -4,6 +4,7 @@
   using System.Collections.Generic;
   using ImageRenamer.Abstract;
   using ImageRenamer.Concrete;
+  using ImageRenamer.Concrete.Validators;
 
   public class RenameRowExtractor : ExtractorBase<RenameRow>
   {
@@ -26,7 +27,7 @@
 
       for (var row = startRowIndex; row <= rowCount; row++)
       {
-        var renameRow = new RenameRow()
+        var renameRow = new RenameRow(new RenameRowValidator())
         {
           CustomersFilename = XlAdapter.ExtractString(row, columnMap.CustomerFileNameIndex),
           NewFilename = XlAdapter.ExtractString(row, columnMap.NewFileNameIndex),
