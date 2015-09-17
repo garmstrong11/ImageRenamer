@@ -42,12 +42,21 @@
     }
 
     [Test]
+    public void MatchName_ExcludesExtension()
+    {
+      var info = new FileInfo(@"D:\Switch\Andrews\in\Correct 1 2 4 Wrong 3~2.tif");
+      var artFile = new ArtFile(info);
+
+      artFile.MatchName.Should().Be("Correct 1 2 4 Wrong 3");
+    }
+
+    [Test]
     public void MatchName_TildeErrorIsRemovedWhenPresent()
     {
       var info = new FileInfo(@"D:\Switch\Andrews\in\Correct 1 2 4 Wrong 3~2.tif");
       var artFile = new ArtFile(info);
 
-      artFile.MatchName.Should().Be("Correct 1 2 4 Wrong 3.tif");
+      artFile.MatchName.Should().Be("Correct 1 2 4 Wrong 3");
     }
 
     [Test]
@@ -56,7 +65,7 @@
       var info = new FileInfo(@"D:\Switch\Andrews\in\Correct 1 2 4 Wrong 3.tif");
       var artFile = new ArtFile(info);
 
-      artFile.MatchName.Should().Be("Correct 1 2 4 Wrong 3.tif");
+      artFile.MatchName.Should().Be("Correct 1 2 4 Wrong 3");
     }
   }
 }

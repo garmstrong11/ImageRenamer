@@ -94,6 +94,7 @@
       Container.RegisterSingle<ISettingsService, ImageRenamerSettings>();
       Container.RegisterSingle<IDataSourceAdapter, FlexCelDataSourceAdapter>();
       Container.Register<IExtractor<RenameRow>, RenameRowExtractor>();
+      Container.Register<AbstractValidator<RenameRow>, RenameRowValidator>();
     }
   }
 }
