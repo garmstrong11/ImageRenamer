@@ -33,7 +33,8 @@
       var columnMapValidator = new ColumnMapValidator(settings);
       var handlerValidator = new ImageHandlerValidator();
       var existingFiles = new List<FileInfo>();
-      var messages = new List<string>();
+      var messages = "";
+      var excelFileName = "No Excel File";
 
       Parser.Default.ParseArguments(args, options);
 
@@ -45,6 +46,7 @@
 
         // Throws InvalidOperationException if not found
         var excelFile = existingFiles.Single(f => Regex.IsMatch(f.Extension, @"\.xlsx?"));
+        excelFileName = Path.GetFileNameWithoutExtension(excelFile.Name);
         existingFiles.Remove(excelFile);
 
         extractor.Initialize(excelFile.FullName);
@@ -57,35 +59,36 @@
         handler.AddArtFileRange(existingFiles.Select(f => new ArtFile(f)));
 
         var result = handlerValidator.Validate(handler);
-        messages.AddRange(result.Errors.Select(e => e.ErrorMessage).OrderBy(e => e));
+        var errorBuilder = new ErrorFileBuilder(result.Errors);
+        messages += errorBuilder.GetErrorText();
 
         handler.CopyValidFiles();
-        handler.Cleanup();
+        //handler.Cleanup();
       }
 
       catch (ValidationException exc) {
-        messages.AddRange(exc.Errors.Select(f => f.ErrorMessage));
+        messages += exc.Message;
       }
 
       catch (FlexCelExtractionException exc) {
-        messages.Add(exc.Message);
+        messages += exc.Message;
       }
 
       catch (InvalidOperationException) {
-        messages.Add("Unable to find an Excel file for this group.");
+        messages += "Unable to find an Excel file for this group.";
       }
 
       catch (KeyNotFoundException exc) {
-        messages.Add(exc.Message);
+        messages += exc.Message;
       }
 
       catch (Exception exc) {
-        messages.Add(exc.Message);
+        messages += exc.Message;
       }
 
       finally {
-        var outputFilename = Path.Combine(options.OutputPath, settings.OutputReportFileName);
-        File.WriteAllLines(outputFilename, messages.OrderBy(p => p));
+        var outputFilename = Path.Combine(options.OutputPath, excelFileName + settings.OutputReportFileName);
+        File.WriteAllText(outputFilename, messages);
       }
     }
 

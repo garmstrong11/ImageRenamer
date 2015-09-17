@@ -73,7 +73,7 @@ namespace ImageRenamer.Console.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Errors.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("_Errors.txt")]
         public string OutputReportFilename {
             get {
                 return ((string)(this["OutputReportFilename"]));

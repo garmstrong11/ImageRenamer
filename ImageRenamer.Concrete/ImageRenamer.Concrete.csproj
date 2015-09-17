@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtFile.cs" />
+    <Compile Include="ErrorFileBuilder.cs" />
     <Compile Include="ImageHandler.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

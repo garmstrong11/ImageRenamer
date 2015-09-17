@@ -15,7 +15,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="OutputReportFilename" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Errors.txt</Value>
+      <Value Profile="(Default)">_Errors.txt</Value>
     </Setting>
   </Settings>
 </SettingsFile>
