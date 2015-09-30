@@ -73,5 +73,14 @@
         return hashCode;
       }
     }
+
+    public string SuccessMessage
+    {
+      get
+      {
+        if (!IsValid) return null;
+        return NewFilename;
+      }
+    }
   }
 }

@@ -52,7 +52,7 @@
         extractor.Initialize(excelFile.FullName);
         var columnMap = extractor.GetColumnMap(settings, settings.SheetIndex, settings.HeaderRowIndex);
         columnMapValidator.ValidateAndThrow(columnMap);
-        var rows = extractor.Extract(columnMap, settings.SheetIndex, settings.StartRowIndex);
+        var rows = extractor.Extract(columnMap, settings.SheetIndex, settings.StartRowIndex).ToList();
 
         var handler = new ImageHandler(options.InputPath, options.OutputPath);
         handler.AddRenameRowRange(rows);
@@ -60,10 +60,17 @@
 
         var result = handlerValidator.Validate(handler);
         var errorBuilder = new ErrorFileBuilder(result.Errors);
+        foreach (var validRow in rows.Where(r => r.IsValid)) {
+          errorBuilder.AddSuccess(validRow.SuccessMessage);
+        }
+
         messages += errorBuilder.GetErrorText();
 
         handler.CopyValidFiles();
-        //handler.Cleanup();
+#if !DEBUG
+        handler.Cleanup();
+#endif
+
       }
 
       catch (ValidationException exc) {
